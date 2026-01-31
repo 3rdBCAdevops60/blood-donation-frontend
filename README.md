@@ -2,7 +2,7 @@
 
 ## 📌 Project Overview
 The frontend of the Blood Donation Management System is built using **React JS**.  
-It provides a user-friendly interface to interact with the backend APIs for managing blood donors.
+It provides a user-friendly interface to interact with the backend APIs for managing blood donors .
 
 ---
 
