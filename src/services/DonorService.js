@@ -5,13 +5,11 @@ const LOCAL_STORAGE_KEY = "donors";
 
 class DonorService {
 
-  // Load donors from localStorage
   loadFromLocalStorage() {
     const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
     return stored ? JSON.parse(stored) : [];
   }
 
-  // Save donors to localStorage
   saveToLocalStorage(donors) {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(donors));
   }
@@ -19,7 +17,6 @@ class DonorService {
   getAllDonors() {
     return axios.get(BASE_URL)
       .catch(() => {
-        // If API fails, load from localStorage
         const localDonors = this.loadFromLocalStorage();
         return { data: localDonors };
       });
@@ -34,7 +31,7 @@ class DonorService {
     const donors = this.loadFromLocalStorage();
     donors.push(newDonor);
     this.saveToLocalStorage(donors);
-    
+
     return axios.post(BASE_URL, donor)
       .catch(() => {
         return { data: newDonor };
@@ -45,7 +42,7 @@ class DonorService {
     const donors = this.loadFromLocalStorage();
     const filtered = donors.filter(d => d.id !== id);
     this.saveToLocalStorage(filtered);
-    
+
     return axios.delete(`${BASE_URL}/${id}`)
       .catch(() => {
         return { data: {} };
@@ -59,7 +56,7 @@ class DonorService {
       donors[index] = { ...donor, id };
       this.saveToLocalStorage(donors);
     }
-    
+
     return axios.put(`${BASE_URL}/${id}`, donor)
       .catch(() => {
         return { data: donor };
@@ -67,4 +64,5 @@ class DonorService {
   }
 }
 
-export default new DonorService();
+const donorService = new DonorService();
+export default donorService;
