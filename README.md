@@ -107,9 +107,9 @@ sonar-scanner \
 -Dsonar.host.url=http://localhost:9000 \
 -Dsonar.login=YOUR_SONAR_TOKEN
 
+<img width="1116" height="542" alt="image" src="https://github.com/user-attachments/assets/70932398-c215-43da-87d9-a2f4b08e646b" />
 
-📸 Screenshot – SonarQube Analysis Result
-👉 Add screenshot showing bugs, code smells, and coverage
+
 
 🐳 Dockerization
 
@@ -166,9 +166,8 @@ jobs:
     - name: Build React App
       run: npm run build
 
+<img width="1069" height="539" alt="image" src="https://github.com/user-attachments/assets/98510b46-cc85-4587-a595-74dd8189cd79" />
 
-📸 Screenshot – GitHub Actions Workflow Success
-👉 Add screenshot showing green tick CI build
 
 🚀 Deployment Flow
 Developer Push
@@ -180,10 +179,10 @@ GitHub Actions (Build)
 Docker Image
    ↓
 Vercel Deployment
+ 
+https://blood-donation-frontend.vercel.app/ 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f346095d-3f94-4bd8-8048-983fadc1eab4" />
 
-
-📸 Screenshot – Vercel Deployment Dashboard
-👉 Add screenshot of Vercel production deployment
 
 🎯 Purpose of Frontend
 
@@ -191,15 +190,11 @@ The frontend provides an intuitive interface for administrators and users to man
 
 🔮 Future Enhancements
 
-Authentication & authorization
-
-Role-based access (Admin / User)
-
-Advanced donor search
-
-UI improvements with Material UI / Tailwind
-
-Notification alerts
+-Authentication & authorization
+-Role-based access (Admin / User)
+-Advanced donor search
+-UI improvements with Material UI / Tailwind
+-Notification alerts
 
 👩‍💻 Developed By
 
