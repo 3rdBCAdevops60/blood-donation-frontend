@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8080/api/donors";
+const BASE_URL = "https://blood-donation-backend-8r7h.onrender.com/api/donors";
+
 const LOCAL_STORAGE_KEY = "donors";
 
 class DonorService {
