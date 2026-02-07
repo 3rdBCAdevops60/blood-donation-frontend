@@ -70,6 +70,9 @@ Step 2: Start React Application
 npm start
 <img width="1101" height="591" alt="image" src="https://github.com/user-attachments/assets/491caf09-97b2-4bd8-9dcc-8e624cb54628" />
 
+Build frontend:
+
+<img width="859" height="570" alt="image" src="https://github.com/user-attachments/assets/977c82e4-0442-443a-8b52-c4dcaba33810" />
 
 Step 3: Open in Browser
 http://localhost:3000
