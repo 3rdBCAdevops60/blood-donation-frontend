@@ -97,7 +97,7 @@ const DonorList = () => {
       </select>
 
       {/* Table */}
-      <h2>View All Donors</h2>
+      <h2 className="view-heading">View All Donors</h2>
       <table border="1">
         <thead>
           <tr>
