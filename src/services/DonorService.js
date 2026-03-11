@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const BASE_URL = "https://blood-donation-backend-8r7h.onrender.com/api/donors";
+// Allow overriding backend base URL so Vercel/localhost can talk to Render API
+const API_BASE = (process.env.REACT_APP_API_BASE_URL || "https://blood-donation-backend-8r7h.onrender.com").replace(/\/$/, "");
+const BASE_URL = `${API_BASE}/api/donors`;
 
 const LOCAL_STORAGE_KEY = "donors";
 
