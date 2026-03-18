@@ -14,24 +14,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # ✅ Checkout code
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # ✅ Install Node
+      # ✅ Setup Node
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      # ✅ Install dependencies
+      # ✅ Install dependencies (INSIDE FRONTEND FOLDER)
       - name: Install dependencies
         run: npm install
+        working-directory: ./blood-donation-ui
 
-      # ✅ Generate coverage (VERY IMPORTANT)
+      # ✅ Run tests with coverage (INSIDE FRONTEND FOLDER)
       - name: Run tests with coverage
         run: npm test -- --coverage
+        working-directory: ./blood-donation-ui
 
-      # ✅ Sonar Scan
+      # ✅ SonarCloud Scan
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         env:
@@ -40,5 +43,5 @@ jobs:
           args: >
             -Dsonar.projectKey=varshinik27_blood-donation-frontend
             -Dsonar.organization=varshinik27
-            -Dsonar.sources=.
-            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+            -Dsonar.sources=./blood-donation-ui/src
+            -Dsonar.javascript.lcov.reportPaths=blood-donation-ui/coverage/lcov.info
