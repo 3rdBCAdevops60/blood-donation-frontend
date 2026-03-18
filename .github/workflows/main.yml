@@ -10,29 +10,24 @@ on:
 
 jobs:
   sonarcloud:
-    name: SonarCloud Scan
     runs-on: ubuntu-latest
 
     steps:
-      # ✅ Checkout
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      # ✅ Setup Node
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      # ✅ Install dependencies
       - name: Install dependencies
         run: npm install
+        working-directory: blood-donation-ui
 
-      # ✅ Run tests with coverage
       - name: Run tests with coverage
         run: npm test -- --coverage
+        working-directory: blood-donation-ui
 
-      # ✅ Sonar scan
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         env:
@@ -41,5 +36,5 @@ jobs:
           args: >
             -Dsonar.projectKey=varshinik27_blood-donation-frontend
             -Dsonar.organization=varshinik27
-            -Dsonar.sources=src
-            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+            -Dsonar.sources=blood-donation-ui/src
+            -Dsonar.javascript.lcov.reportPaths=blood-donation-ui/coverage/lcov.info
