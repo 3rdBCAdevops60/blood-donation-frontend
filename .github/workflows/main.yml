@@ -17,6 +17,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # ✅ Install Node
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # ✅ Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # ✅ Generate coverage (VERY IMPORTANT)
+      - name: Run tests with coverage
+        run: npm test -- --coverage
+
+      # ✅ Sonar Scan
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         env:
@@ -26,3 +41,4 @@ jobs:
             -Dsonar.projectKey=varshinik27_blood-donation-frontend
             -Dsonar.organization=varshinik27
             -Dsonar.sources=.
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
