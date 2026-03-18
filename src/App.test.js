@@ -1,9 +1,15 @@
-import { render } from '@testing-library/react';
-import App from './App';
+// ❗ DO NOT import anything before mock
 
-// 🔥 Mock entire DonorList component (IMPORTANT)
-jest.mock('./components/DonorList', () => () => <div>Mocked DonorList</div>);
+jest.mock("./services/DonorService", () => ({
+  __esModule: true,
+  default: {
+    getAllDonors: () => Promise.resolve({ data: [] }),
+  },
+}));
 
-test('renders app without crashing', () => {
+import { render } from "@testing-library/react";
+import App from "./App";
+
+test("renders app safely", () => {
   render(<App />);
 });
