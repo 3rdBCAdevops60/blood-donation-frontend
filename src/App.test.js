@@ -1,8 +1,9 @@
-jest.mock("axios", () => ({
-  get: jest.fn(),
-  post: jest.fn(),
-}));
+import { render } from '@testing-library/react';
+import App from './App';
 
-test("basic test", () => {
-  expect(true).toBe(true);
+// 🔥 Mock entire DonorList component (IMPORTANT)
+jest.mock('./components/DonorList', () => () => <div>Mocked DonorList</div>);
+
+test('renders app without crashing', () => {
+  render(<App />);
 });
