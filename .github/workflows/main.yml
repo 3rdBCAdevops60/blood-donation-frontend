@@ -18,14 +18,10 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: |
-          cd blood-donation-ui
-          npm install
+        run: npm install
 
       - name: Run tests with coverage
-        run: |
-          cd blood-donation-ui
-          npm test -- --coverage
+        run: npm test -- --coverage
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
@@ -35,5 +31,5 @@ jobs:
           args: >
             -Dsonar.projectKey=varshinik27_blood-donation-frontend
             -Dsonar.organization=varshinik27
-            -Dsonar.sources=blood-donation-ui/src
-            -Dsonar.javascript.lcov.reportPaths=blood-donation-ui/coverage/lcov.info
+            -Dsonar.sources=src
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
