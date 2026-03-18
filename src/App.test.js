@@ -3,6 +3,6 @@ jest.mock("axios", () => ({
   post: jest.fn(),
 }));
 
-test("renders app", () => {
+test("basic test", () => {
   expect(true).toBe(true);
 });
