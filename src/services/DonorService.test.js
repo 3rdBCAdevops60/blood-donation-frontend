@@ -10,12 +10,16 @@ import DonorService from './DonorService';
 
 describe('DonorService', () => {
 
+  beforeEach(() => {
+    jest.clearAllMocks(); // important
+  });
+
   test('getAllDonors calls API', async () => {
     axios.get.mockResolvedValue({ data: [] });
 
     const res = await DonorService.getAllDonors();
 
-    expect(axios.get).toHaveBeenCalled();
+    expect(axios.get).toHaveBeenCalledWith(expect.any(String));
     expect(res.data).toEqual([]);
   });
 
@@ -29,22 +33,23 @@ describe('DonorService', () => {
     expect(res.data).toEqual(donor);
   });
 
-});
-test('deleteDonor calls API', async () => {
-  axios.delete.mockResolvedValue({ data: {} });
+  test('deleteDonor calls API', async () => {
+    axios.delete.mockResolvedValue({ data: {} });
 
-  const res = await DonorService.deleteDonor(1);
+    const res = await DonorService.deleteDonor(1);
 
-  expect(axios.delete).toHaveBeenCalled();
-  expect(res.data).toEqual({});
-});
+    expect(axios.delete).toHaveBeenCalledWith(expect.any(String));
+    expect(res.data).toEqual({});
+  });
 
-test('updateDonor calls API', async () => {
-  const donor = { name: 'Updated' };
-  axios.put.mockResolvedValue({ data: donor });
+  test('updateDonor calls API', async () => {
+    const donor = { name: 'Updated' };
+    axios.put.mockResolvedValue({ data: donor });
 
-  const res = await DonorService.updateDonor(1, donor);
+    const res = await DonorService.updateDonor(1, donor);
 
-  expect(axios.put).toHaveBeenCalled();
-  expect(res.data).toEqual(donor);
+    expect(axios.put).toHaveBeenCalled();
+    expect(res.data).toEqual(donor);
+  });
+
 });
