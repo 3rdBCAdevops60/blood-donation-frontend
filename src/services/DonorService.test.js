@@ -30,3 +30,21 @@ describe('DonorService', () => {
   });
 
 });
+test('deleteDonor calls API', async () => {
+  axios.delete.mockResolvedValue({ data: {} });
+
+  const res = await DonorService.deleteDonor(1);
+
+  expect(axios.delete).toHaveBeenCalled();
+  expect(res.data).toEqual({});
+});
+
+test('updateDonor calls API', async () => {
+  const donor = { name: 'Updated' };
+  axios.put.mockResolvedValue({ data: donor });
+
+  const res = await DonorService.updateDonor(1, donor);
+
+  expect(axios.put).toHaveBeenCalled();
+  expect(res.data).toEqual(donor);
+});
