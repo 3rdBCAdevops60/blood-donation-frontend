@@ -3,6 +3,6 @@ jest.mock("axios", () => ({
   post: jest.fn(),
 }));
 
-test("dummy test to pass coverage", () => {
+test("dummy the test to pass coverage", () => {
   expect(true).toBe(true);
 });
