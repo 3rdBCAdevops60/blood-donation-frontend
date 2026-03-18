@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   sonarcloud:
@@ -21,12 +18,14 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
-        working-directory: blood-donation-ui
+        run: |
+          cd blood-donation-ui
+          npm install
 
       - name: Run tests with coverage
-        run: npm test -- --coverage
-        working-directory: blood-donation-ui
+        run: |
+          cd blood-donation-ui
+          npm test -- --coverage
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
