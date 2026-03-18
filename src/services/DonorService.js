@@ -26,4 +26,5 @@ class DonorService {
 
 }
 
-export default new DonorService();
+const donorService = new DonorService();
+export default donorService;
