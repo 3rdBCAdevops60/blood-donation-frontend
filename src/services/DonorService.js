@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://blood-donation-backend-8r7h.onrender.com/api/donors";
+const BASE_URL = "https://blood-backend-app-c4agebg6e3b4bxhn.centralindia-01.azurewebsites.net/api/donors";
 
 class DonorService {
 
