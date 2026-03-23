@@ -96,9 +96,12 @@ const DonorList = () => {
         <option>AB+</option><option>AB-</option>
       </select>
 
+      {/* Total donors */}
+      <h3>Total Donors: {filteredDonors.length}</h3>
+
       {/* Table */}
       <h2 className="view-heading">View All Donors</h2>
-      <table border="1">
+      <table>
         <thead>
           <tr>
             <th>Name</th>
@@ -114,17 +117,13 @@ const DonorList = () => {
               <td>{d.name}</td>
               <td>{d.bloodGroup}</td>
               <td>{d.city}</td>
-              <td>{d.available ? "Yes" : "No"}</td>
+              <td style={{ color: d.available ? "green" : "red" }}>
+                {d.available ? "Yes" : "No"}
+              </td>
               <td>
-                <button className="toggle-btn" onClick={() => toggleAvailability(d)}>
-                  Toggle
-                </button>
-                <button className="edit-btn" onClick={() => openEditModal(d)}>
-                  Edit
-                </button>
-                <button className="delete-btn" onClick={() => deleteDonor(d.id)}>
-                  Delete
-                </button>
+                <button className="toggle-btn" onClick={() => toggleAvailability(d)}>Toggle</button>
+                <button className="edit-btn" onClick={() => openEditModal(d)}>Edit</button>
+                <button className="delete-btn" onClick={() => deleteDonor(d.id)}>Delete</button>
               </td>
             </tr>
           ))}
@@ -143,8 +142,8 @@ const DonorList = () => {
             <input value={editDonor.city}
               onChange={e => setEditDonor({ ...editDonor, city: e.target.value })} />
             <br />
-            <button onClick={saveEdit}>Save</button>
-            <button onClick={() => setShowModal(false)}>Cancel</button>
+            <button className="save-btn" onClick={saveEdit}>Save</button>
+            <button className="cancel-btn" onClick={() => setShowModal(false)}>Cancel</button>
           </div>
         </div>
       )}
